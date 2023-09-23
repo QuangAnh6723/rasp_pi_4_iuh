@@ -7,3 +7,8 @@ curl -sL http://github.com/Seeed-Studio/grove.py/raw/master/install.sh | sudo ba
 # cài thư viện dht 
 
 pip3 install seeed-python-dht
+
+# cau hinh cho rasp
+
+sudo raspi-config
+
