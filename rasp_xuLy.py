@@ -51,7 +51,6 @@ def dieu_khien():
         elif relay_state == 0:
             # relay.off()
             print("relay off")
-
     elif mode == 0: 
         print("mode auto")
         h = strftime("%H").split(':')
