@@ -1,9 +1,6 @@
-# from time import sleep, strftime
-from time import sleep
 import json
 import paho.mqtt.client as mqtt
-
-from time import sleep, strftime
+from time import strftime
 import json
 # from grove.display.jhd1802 import JHD1802 as LCD
 # from grove.grove_relay import GroveRelay
@@ -18,7 +15,7 @@ import json
 # buzzer = LED(16)
 # dht = DHT("11",18)
 
-channel_ID = "2272720"
+
 # tao bien global de luu cac gia tri
 mode = 0
 led_state = 0
@@ -51,6 +48,7 @@ def dieu_khien():
         elif relay_state == 0:
             # relay.off()
             print("relay off")
+
     elif mode == 0: 
         print("mode auto")
         h = strftime("%H").split(':')
@@ -77,6 +75,7 @@ def dieu_khien():
             print("relay off")
 
 def on_connect(client, userdata,flags,rc):
+    channel_ID = "2272720"
     print("Connected with result code {}".format(rc))
     client.subscribe('channels/'+channel_ID+'/subscribe')
     
@@ -110,6 +109,7 @@ def on_message(client, userdata, message):
     
     print(mode, led_state, relay_state, buzzer_state, humi, temp)
     dieu_khien()
+    print('=========================================')
 # ========================================================================
 client_id = 'ETYpPQIvAQ8jCjI1By0AGRc'
 client = mqtt.Client(client_id)
